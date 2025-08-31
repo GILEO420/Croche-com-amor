@@ -1,10 +1,84 @@
-Recovery Key: CAPX1JV73AZC6P55
-deusot
-Schawszmarijuanaplad
+import { useState } from "react"
+</div>
+</div>
+))}
+</section>
 
 
+{/* Carrinho */}
+<section id="carrinho" className="bg-white p-8">
+<h2 className="text-2xl font-bold mb-4 text-pink-600">🛒 Meu Carrinho</h2>
+{carrinho.length === 0 ? (
+<p className="text-gray-600">Seu carrinho está vazio.</p>
+) : checkoutAtivo ? (
+<div>
+<h3 className="text-xl font-semibold mb-2">Escolha a forma de pagamento:</h3>
+<div className="space-y-2">
+<label className="flex items-center space-x-2">
+<input type="radio" name="pagamento" value="Pix" checked={pagamento === "Pix"} onChange={(e) => setPagamento(e.target.value)} />
+<span>Pix</span>
+</label>
+<label className="flex items-center space-x-2">
+<input type="radio" name="pagamento" value="Cartão de Crédito" checked={pagamento === "Cartão de Crédito"} onChange={(e) => setPagamento(e.target.value)} />
+<span>Cartão de Crédito</span>
+</label>
+<label className="flex items-center space-x-2">
+<input type="radio" name="pagamento" value="Boleto" checked={pagamento === "Boleto"} onChange={(e) => setPagamento(e.target.value)} />
+<span>Boleto Bancário</span>
+</label>
+</div>
+<button
+onClick={finalizarCompra}
+className="mt-4 w-full bg-green-500 text-white py-2 rounded-xl hover:bg-green-600 transition"
+>
+Confirmar Pagamento
+</button>
+</div>
+) : (
+<div>
+<ul className="space-y-2">
+{carrinho.map((item, index) => (
+<li key={index} className="flex justify-between items-center border-b py-2">
+<span>{item.nome} - R$ {item.preco},00</span>
+<button onClick={() => removerCarrinho(index)} className="text-red-500 hover:underline">Remover</button>
+</li>
+))}
+</ul>
+<div className="mt-4 font-bold text-lg">Total: R$ {total},00</div>
+<button
+onClick={() => setCheckoutAtivo(true)}
+className="mt-4 w-full bg-green-500 text-white py-2 rounded-xl hover:bg-green-600 transition"
+>
+Finalizar Compra
+</button>
+</div>
+)}
+</section>
 
 
-eOtIAYh7A1HELq/G4iKunVwCsS6MwtlQ8Nc1621B33E=
-ts3
-lealzeratv
+{/* Sobre */}
+<section id="sobre" className="bg-white p-8 text-center">
+<h2 className="text-2xl font-bold mb-4 text-pink-600">Sobre mim</h2>
+<p className="max-w-2xl mx-auto text-gray-700">
+Cada peça é feita à mão com muito carinho e dedicação. O crochê é mais que um trabalho,
+é uma forma de espalhar afeto e aconchego em cada detalhe.
+</p>
+</section>
+
+
+{/* Contato */}
+<section id="contato" className="p-8 text-center bg-pink-50">
+<h2 className="text-2xl font-bold mb-4 text-pink-600">Contato</h2>
+<p className="mb-2">📱 WhatsApp: (xx) xxxxx-xxxx</p>
+<p className="mb-2">📧 E-mail: contato@crochecomamor.com</p>
+<p>📷 Instagram: @crochecomamor</p>
+</section>
+
+
+{/* Rodapé */}
+<footer className="bg-pink-200 text-center py-4 mt-6">
+<p>© 2025 Crochê com Amor - Todos os direitos reservados</p>
+</footer>
+</div>
+)
+}
